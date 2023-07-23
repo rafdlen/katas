@@ -30,7 +30,37 @@
  */
 
 import XCTest
+@testable import Katas
 
 final class RomanNumeralsTests: XCTestCase {
-  
+    override func setUp() {
+    }
+    
+    override func tearDown() {
+    }
+    
+    func testShouldReturnIIifNumIsTwo() {
+        let roman = RomanNumerals(num: 2)
+        
+        XCTAssertEqual(roman, "II")
+    }
+    
+    func testShouldReturnDCCCXLVIifNumIsEgighthundredAndSix() {
+        let roman = RomanNumerals(num: 846)
+        
+        XCTAssertEqual(roman, "DCCCXLVI")
+    }
+    
+    func testShouldReturnMMVIIIifNumIs2008() {
+        let roman = RomanNumerals(num: 2008)
+        
+        XCTAssertEqual(roman, "MMVIII")
+    }
+    
+    func testShouldReturnMCMXCIXifNumIs1999() {
+        let roman = RomanNumerals(num: 1999)
+
+        XCTAssertEqual(roman, "MCMXCIX")
+    }
+    
 }
