@@ -29,33 +29,30 @@ import XCTest
 @testable import Katas
 
 final class LeapYearTests: XCTestCase {
+    var leapYear: LeapYear!
     override func setUp() {
+        super.setUp()
+        leapYear = LeapYear()
     }
     
     override func tearDown() {
+        leapYear = nil
+        super.tearDown()
     }
     
     func testShouldReturnLeapYearIfDivisibleByFourHundred() {
-        let leap = LeapYear(year: 2000)
-        
-        XCTAssertEqual(leap, "Leap year.")
+        XCTAssertEqual(leapYear.isLeapYear(2000), "Leap year.")
     }
     
     func testShouldReturnNotLeapYearIfDibisibleByHyndredAndNotByFourHundred() {
-        let leap = LeapYear(year: 1700)
-        
-        XCTAssertEqual(leap, "Not leap year.")
+        XCTAssertEqual(leapYear.isLeapYear(1500), "Not leap year.")
     }
     
     func testShouldReturnLeapYearIfDivisibleByFourButNotDivisibleByHundred() {
-        let leap = LeapYear(year: 2008)
-        
-        XCTAssertEqual(leap, "Leap year.")
+        XCTAssertEqual(leapYear.isLeapYear(2008), "Leap year.")
     }
     
     func testShouldReturnNotLeapYearIfNotDivisibleByFour() {
-        let leap = LeapYear(year: 2018)
-        
-        XCTAssertEqual(leap, "Not leap year.")
+        XCTAssertEqual(leapYear.isLeapYear(2017), "Not leap year.")
     }
 }
