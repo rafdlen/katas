@@ -7,18 +7,18 @@
 
 import Foundation
 
-func LeapYear(year: Int) -> String {
-    if year % 400 == 0 {
+struct LeapYear {
+    func isLeapYear(_ year: Int) -> String {
+        if year % 100 == 0 && year % 400 != 0 {
+            return "Not leap year."
+        }
+        if year % 4 == 0 && year % 100 != 0 {
+            return "Leap year."
+        }
+        if year % 4 != 0 {
+            return "Not leap year."
+        }
         return "Leap year."
     }
-    else if year % 400 != 0 && year % 100 == 0 {
-        return "Not leap year."
-    }
-    else if year % 100 != 0 && year % 4 == 0 {
-        return "Leap year."
-    }
-    else if year % 4 != 0 {
-        return "Not leap year."
-    }
-    return "1"
 }
+
