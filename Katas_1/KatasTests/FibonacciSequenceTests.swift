@@ -42,53 +42,44 @@ import XCTest
 @testable import Katas
 
 final class FibonacciSequenceTests: XCTestCase {
+    var fibonacci: Fibonacci!
   
   override func setUp() {
+      super.setUp()
+      fibonacci = Fibonacci()
   }
   
   override func tearDown() {
+      fibonacci = nil
+      super.tearDown()
   }
   
   func testShouldReturnZeroAsTheFirstPosition() {
-      let fib = FibonacciSequence(num: 0)
-      
-      XCTAssertEqual(fib, 0)
+      XCTAssertEqual(fibonacci.calculate(1), 0)
   }
   
   func testShouldReturnOneAsTheSecondPosition() {
-      let fib = FibonacciSequence(num: 1)
-      
-      XCTAssertEqual(fib, 1)
+      XCTAssertEqual(fibonacci.calculate(2), 1)
   }
   
   func testShouldReturnOneAsTheThirdPosition() {
-      let fib = FibonacciSequence(num: 2)
-      
-        XCTAssertEqual(fib, 1)
+      XCTAssertEqual(fibonacci.calculate(3), 1)
   }
   
   func testShouldReturnTwoForTheFourthPosition() {
-      let fib = FibonacciSequence(num: 3)
-      
-        XCTAssertEqual(fib, 2)
+      XCTAssertEqual(fibonacci.calculate(4), 2)
   }
   
   func testShouldReturnTreeForTheFifthPosition() {
-      let fib = FibonacciSequence(num: 4)
-      
-        XCTAssertEqual(fib, 3)
+      XCTAssertEqual(fibonacci.calculate(5), 3)
   }
   
   func testShouldReturnEightForTheSeventhPosition() {
-      let fib = FibonacciSequence(num: 6)
-      
-        XCTAssertEqual(fib, 8)
+      XCTAssertEqual(fibonacci.calculate(7), 8)
   }
   
   func testShouldReturnThirtyFourForTheTenthPosition() {
-      let fib = FibonacciSequence(num: 9)
-      
-        XCTAssertEqual(fib, 34)
+      XCTAssertEqual(fibonacci.calculate(10), 34)
   }
 }
 
